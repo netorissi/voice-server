@@ -10,13 +10,10 @@ io.sockets.on('connection', socket => {
     console.log('listening sockets ...');
 
     socket.emit('CONNECTED', { text: 'server send a message' });
-    socket.on('MOSCANDO_VOICE', () => io.sockets.emit('MOSCANDO'));
-    socket.on('OI_VOICE', () => io.sockets.emit('OI'));
-    socket.on('FALA_VOICE', () => io.sockets.emit('FALA'));
-    socket.on('DANCA_VOICE', () => io.sockets.emit('DANCA'));
-    socket.on('LUTA_VOICE', () => io.sockets.emit('LUTA'));
-    socket.on('PULA_VOICE', () => io.sockets.emit('PULA'));
-    socket.on('YEAH_VOICE', () => io.sockets.emit('YEAH'));
+    socket.on('FALA_VOICE1', () => io.sockets.emit('FALA1'));
+    socket.on('DANCA_VOICE', () => io.sockets.emit('DANCE'));
+    socket.on('ROTATE_VOICE', () => io.sockets.emit('ROTATE'));
+    socket.on('PULA_VOICE', () => io.sockets.emit('JUMP'));
 });
 
 server.listen(app.get('port'), () => console.log('start server in: ' + app.get('port')));
