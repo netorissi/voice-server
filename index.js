@@ -10,10 +10,11 @@ io.sockets.on('connection', socket => {
     console.log('listening sockets ...');
 
     socket.emit('CONNECTED', { text: 'server send a message' });
-    socket.on('FALA_VOICE1', () => io.sockets.emit('FALA1'));
-    socket.on('DANCA_VOICE', () => io.sockets.emit('DANCE'));
-    socket.on('ROTATE_VOICE', () => io.sockets.emit('ROTATE'));
-    socket.on('PULA_VOICE', () => io.sockets.emit('JUMP'));
+    socket.on('VOICE', number => {
+        console.log("SERVER NUMBER: " + JSON.stringify(number))
+        io.sockets.emit('VOICE', number)
+    });
+    socket.on('IDDLE', number => io.sockets.emit('IDDLE', number));
 });
 
 server.listen(app.get('port'), () => console.log('start server in: ' + app.get('port')));
